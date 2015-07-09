@@ -16,7 +16,7 @@
                                     
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-        <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+        <script src="../../dist/js/jquery-2.1.4.min.js"></script>
                                     
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -380,7 +380,36 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
         
-        
+        <script>
+            $().ready(function(){
+                      $.getJSON( "api/main/list.do", function( data ) {
+                                $.each( data.categoryList, function( cateNum, category ) {
+                                       $("#cate"+cateNum+"Name").html(category.name);
+                                       $("#cate"+cateNum+"MoreUrl").attr("href", category.moreUrl);
+                                       
+                                       $.each( category.productList, function( prdNum, product ) {
+                                              var prdObjId = "cate"+cateNum+"Prd"+prdNum;
+                                              $("#"+prdObjId+"Pic").attr("src",product.pic);
+                                              $("#"+prdObjId+"Title").attr("src",product.title);
+                                              $("#"+prdObjId+"LowPrice").attr("src",product.lowPrice);
+                                              //TODO set url to click $("#"+prdObjId+"Pic").attr("href",product.url);
+                                              var tagsHtml = "<dl>";
+                                              $.each( product.tags, function( tagNum, tag ) {
+                                                     tagsHtml = tagsHtml + "<dt>" + tag.name + "</dt><br/>";
+                                                     });
+                                              tagsHtml += "</dl>";
+                                              $("#"+prdObjId+"Tags").html(tagsHtml);
+                                              
+                                              $("#"+prdObjId).show();
+                                              });
+                                       
+                                       $("#category"+cateNum).show();
+                                       });
+                                
+                                });
+                      });
+            
+        </script>
         
         
     </body>

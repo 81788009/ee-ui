@@ -12,7 +12,9 @@
                                 
         <!-- Bootstrap core CSS -->
         <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-                                    
+        
+        <script src="../../dist/js/jquery-2.1.4.min.js"></script>
+        
         <!-- Custom styles for this template -->
         <link href="jumbotron.css" rel="stylesheet">
                                         
@@ -51,7 +53,7 @@
         <div class="container" id="typeList" style="display:none;">
             <div>
                 <ul class="nav nav-pills pull-center">
-                    <li role="presentation" class="active"><a href="#" id="typeListAll" style="display:none;">全部</a></li>
+                    <li role="presentation"><a href="#" id="typeList0" style="display:none;">全部</a></li>
                     <li role="presentation"><a href="#" id="typeList1" style="display:none;">1段</a></li>
                     <li role="presentation"><a href="#" id="typeList2" style="display:none;">2段</a></li>
                     <li role="presentation"><a href="#" id="typeList3" style="display:none;">3段</a></li>
@@ -355,7 +357,52 @@
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
         
         
-        
+        <script>
+        $().ready(function(){
+                  $.getJSON( "api/category/type.do", function( data ) {
+                            var list = data.typeList || [];
+                            if(list.length > 0){
+                                $.each( list, function( typeNum, type ) {
+                                       var typeListId = "typeList" + typeNum;
+                                       
+                                       $("#"+typeListId).html(type.name);
+                                       $("#"+typeListId).attr("href", type.url);
+                                       
+                                       if(type.selected == "true"){
+                                       $("#"+typeListId).parent().addClass("active");
+                                       }
+                                       
+                                       $("#"+typeListId).show();
+                                       });
+                                $("#typeList").show();
+                            }
+                            });
+                  $.getJSON( "api/category/list.do", function( data ) {
+                            $.each( data.productList, function( prdNum, product ) {
+                                   var row = typeNum / 3 + 1;
+                                   var num = typeNum % 3 + 1;
+                                   
+                                   var prdObjId = "row"+row+"Prd"+num;
+                                   
+                                   $("#"+prdObjId+"Pic").attr("src",product.pic);
+                                   $("#"+prdObjId+"Title").html(product.title);
+                                   $("#"+prdObjId+"LowPrice").html(product.lowPrice);
+                                   //TODO set url to click $("#"+prdObjId+"Pic").attr("href",product.url);
+                                   
+                                   var tagsHtml = "<dl>";
+                                   $.each( product.tags, function( tagNum, tag ) {
+                                          tagsHtml = tagsHtml + "<dt>" + tag.name + "</dt><br/>";
+                                          });
+                                   tagsHtml += "</dl>";
+                                   $("#"+prdObjId+"Tags").html(tagsHtml);
+                                   
+                                   $("#"+prdObjId).show();
+                                   $("#prdRow"+row).show();
+                                   });
+                            
+                            });
+        });
+        </script>
         
         
     </body>
