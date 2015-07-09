@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
                                 
-        <title>美素佳儿2段金装</title>
+        <title id="title">美素佳儿2段金装</title>
                                 
         <!-- Bootstrap core CSS -->
         <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,11 +44,13 @@
         </nav>
         
         <div class="container">
-            <ul class="nav nav-pills pull-center">
-                <li class="active"><a href="#">400g罐装</a></li>
-                <li><a href="#">900g罐装</a></li>
-                <li><a href="#">400g盒装</a></li>
-                <li><a href="#">1200g盒装</a></li>
+            <ul class="nav nav-pills pull-center" id="specList" style="display:none;">
+                <li class="active"><a href="#" id="specList1" style="display:none;">400g罐装</a></li>
+                <li><a href="#" id="specList2" style="display:none;">900g罐装</a></li>
+                <li><a href="#" id="specList3" style="display:none;">400g盒装</a></li>
+                <li><a href="#" id="specList4" style="display:none;">1200g盒装</a></li>
+                <li><a href="#" id="specList5" style="display:none;"></a></li>
+                <li><a href="#" id="specList6" style="display:none;"></a></li>
             </ul>
         </div>
         
@@ -63,20 +65,16 @@
                             <li data-target="#myCarousel" data-slide-to="0" class=""></li>
                             <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
                             <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-                            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="item">
-                                <img class="first-slide" src="../pics/Friso2p1.jpg" alt="First slide">
+                                <img class="first-slide" id="rotatePic1" src="../pics/Friso2p1.jpg" alt="First slide">
                                     </div>
                             <div class="item active">
-                                <img class="second-slide" src="../pics/Friso2p2.jpg" alt="Second slide">
+                                <img class="second-slide" id="rotatePic2" src="../pics/Friso2p2.jpg" alt="Second slide">
                                     </div>
                             <div class="item">
-                                <img class="third-slide" src="../pics/Friso2p3.jpg" alt="Third slide">
-                                    </div>
-                            <div class="item">
-                                <img class="fourth-slide" src="../pics/Friso2p4.jpg" alt="Fourth slide">
+                                <img class="third-slide" id="rotatePic3" src="../pics/Friso2p3.jpg" alt="Third slide">
                                     </div>
                         </div>
                         <a class="left carousel-control"  style="background-image:none;" href="#myCarousel" role="button" data-slide="prev">
@@ -90,19 +88,22 @@
                     </div>
                 </div>
                 
-                <div class="col-xs-12 col-sm-7">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">产地最好</div>
-                        <div class="panel-body">荷兰是世界上牧场最好的国家</div>
+                <div class="col-xs-12 col-sm-7" id="prdTags">
+                    <div class="panel panel-default" id="prdTags1" style="display:none;">
+                        <div class="panel-heading" id="prdTags1Name">产地最好</div>
+                        <div class="panel-body"  id="prdTags1Desc">荷兰是世界上牧场最好的国家</div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">不上火</div>
-                        <div class="panel-body">美素奶粉独特的小分子技术，不上火</div>
+                    <div class="panel panel-default" id="prdTags2" style="display:none;">
+                        <div class="panel-heading" id="prdTags2Name">不上火</div>
+                        <div class="panel-body" id="prdTags2Desc">美素奶粉独特的小分子技术，不上火</div>
                     </div>
-                    
-                    <div class="panel panel-default">
-                        <div class="panel-heading">易吸收</div>
-                        <div class="panel-body">美素奶粉独特的小分子技术，易吸收</div>
+                    <div class="panel panel-default" id="prdTags3" style="display:none;">
+                        <div class="panel-heading" id="prdTags3Name">易吸收</div>
+                        <div class="panel-body" id="prdTags3Desc">美素奶粉独特的小分子技术，易吸收</div>
+                    </div>
+                    <div class="panel panel-default" id="prdTags4" style="display:none;">
+                        <div class="panel-heading" id="prdTags4Name"></div>
+                        <div class="panel-body" id="prdTags4Desc"></div>
                     </div>
                 </div>
             </div>
@@ -112,66 +113,194 @@
         
         <div class="container">
             <div class="jumbotron" style="padding:25px 15px">
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="row" id="sourceList1" style="display:none;">
+                    <div class="col-md-4" id="sl1Src1" style="display:none;">
                         <div class="row">
                             <div class="col-md-5" >
-                                <img src="../pics/jd-logo.png" alt="..." class="img-thumbnail">
+                                <img src="../pics/jd-logo.png" id="sl1Src1Logo" alt="..." class="img-thumbnail">
                                     </div>
                             <div class="col-md-3">
-                                <h4 class="text-center" >220元</h4>
+                                <h4 class="text-center" id="sl1Src1Price" >220元</h4>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-danger btn-lg" >去购买</button>
+                                <button class="btn btn-danger btn-lg" id="sl1Src1BuyButton">去购买</button>
                             </div>
                         </div>
                         
-                        <div class="panel panel-default" style="margin-top:2px;">
-                            <div class="panel-heading">优惠信息</div>
-                            <div class="panel-body">满599返80</div>
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl1Src1Discounts">
+                            <div class="panel-heading" id="sl1Src1DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl1Src1DisDesc">满599返80</div>
                         </div>
                     </div>
                     
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="sl1Src2" style="display:none;">
                         <div class="row">
                             <div class="col-md-5" >
-                                <img src="../pics/jd-logo.png" alt="..." class="img-thumbnail">
+                                <img src="../pics/jd-logo.png" id="sl1Src2Logo" alt="..." class="img-thumbnail">
                                     </div>
                             <div class="col-md-3">
-                                <h4 class="text-center" >220元</h4>
+                                <h4 class="text-center" id="sl1Src2Price">220元</h4>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-danger btn-lg" >去购买</button>
+                                <button class="btn btn-danger btn-lg" id="sl1Src2BuyButton">去购买</button>
                             </div>
                         </div>
                         
-                        <div class="panel panel-default" style="margin-top:2px;">
-                            <div class="panel-heading">优惠信息</div>
-                            <div class="panel-body">满599返80</div>
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl1Src2Discounts">
+                            <div class="panel-heading" id="sl1Src2DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl1Src2DisDesc">满599返80</div>
                         </div>
                         
                     </div>
                     
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="sl1Src3" style="display:none;">
                         <div class="row">
                             <div class="col-md-5" >
-                                <img src="../pics/jd-logo.png" alt="..." class="img-thumbnail">
+                                <img src="../pics/jd-logo.png" id="sl1Src3Logo" alt="..." class="img-thumbnail">
                                     </div>
                             <div class="col-md-3">
-                                <h4 class="text-center" >220元</h4>
+                                <h4 class="text-center" id="sl1Src3Price">220元</h4>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-danger btn-lg" >去购买</button>
+                                <button class="btn btn-danger btn-lg" id="sl1Src3BuyButton">去购买</button>
                             </div>
                         </div>
                         
-                        <div class="panel panel-default" style="margin-top:2px;">
-                            <div class="panel-heading">优惠信息</div>
-                            <div class="panel-body">满599返80</div>
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl1Src3Discounts">
+                            <div class="panel-heading" id="sl1Src3DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl1Src3DisDesc">满599返80</div>
                         </div>
                         
                     </div>
                 </div>
+                
+                <br />
+                
+                <div class="row" id="sourceList2" style="display:none;">
+                    <div class="col-md-4" id="sl2Src1" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-5" >
+                                <img src="../pics/jd-logo.png" id="sl2Src1Logo" alt="..." class="img-thumbnail">
+                                    </div>
+                            <div class="col-md-3">
+                                <h4 class="text-center" id="sl2Src1Price" >220元</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-lg" id="sl2Src1BuyButton">去购买</button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl2Src1Discounts">
+                            <div class="panel-heading" id="sl2Src1DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl2Src1DisDesc">满599返80</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" id="sl2Src2" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-5" >
+                                <img src="../pics/jd-logo.png" id="sl2Src2Logo" alt="..." class="img-thumbnail">
+                                    </div>
+                            <div class="col-md-3">
+                                <h4 class="text-center" id="sl2Src2Price">220元</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-lg" id="sl2Src2BuyButton">去购买</button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl2Src2Discounts">
+                            <div class="panel-heading" id="sl2Src2DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl2Src2DisDesc">满599返80</div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-4" id="sl2Src3" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-5" >
+                                <img src="../pics/jd-logo.png" id="sl2Src3Logo" alt="..." class="img-thumbnail">
+                                    </div>
+                            <div class="col-md-3">
+                                <h4 class="text-center" id="sl2Src3Price">220元</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-lg" id="sl2Src3BuyButton">去购买</button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl2Src3Discounts">
+                            <div class="panel-heading" id="sl2Src3DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl2Src3DisDesc">满599返80</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <br />
+                
+                <div class="row" id="sourceList3"  style="display:none;">
+                    <div class="col-md-4" id="sl3Src1" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-5" >
+                                <img src="../pics/jd-logo.png" id="sl3Src1Logo" alt="..." class="img-thumbnail">
+                                    </div>
+                            <div class="col-md-3">
+                                <h4 class="text-center" id="sl3Src1Price" >220元</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-lg" id="sl3Src1BuyButton">去购买</button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl3Src1Discounts">
+                            <div class="panel-heading" id="sl3Src1DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl3Src1DisDesc">满599返80</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" id="sl3Src2" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-5" >
+                                <img src="../pics/jd-logo.png" id="sl3Src2Logo" alt="..." class="img-thumbnail">
+                                    </div>
+                            <div class="col-md-3">
+                                <h4 class="text-center" id="sl3Src2Price">220元</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-lg" id="sl3Src2BuyButton">去购买</button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl3Src2Discounts">
+                            <div class="panel-heading" id="sl3Src2DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl3Src2DisDesc">满599返80</div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-md-4" id="sl3Src3" style="display:none;">
+                        <div class="row">
+                            <div class="col-md-5" >
+                                <img src="../pics/jd-logo.png" id="sl3Src3Logo" alt="..." class="img-thumbnail">
+                                    </div>
+                            <div class="col-md-3">
+                                <h4 class="text-center" id="sl3Src3Price">220元</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger btn-lg" id="sl3Src3BuyButton">去购买</button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default" style="margin-top:2px;" id="sl3Src3Discounts">
+                            <div class="panel-heading" id="sl3Src3DisTitle">优惠信息</div>
+                            <div class="panel-body" id="sl3Src3DisDesc">满599返80</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
             </div>
             
             
