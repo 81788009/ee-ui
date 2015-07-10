@@ -3,6 +3,8 @@ package com.ee.web;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,9 +16,11 @@ import com.google.common.collect.Maps;
 @RequestMapping(value = "api")
 public class MockController {
 
+	private static Logger logger = LoggerFactory.getLogger(MockController.class);
 	@RequestMapping(value = "category/type")
     @ResponseBody
 	public Object categoryType(){
+		logger.info("receive request categoryType");
 		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
 		
 		List<Map<String, Object>> typeList = Lists.newArrayList();
@@ -54,6 +58,7 @@ public class MockController {
 	@RequestMapping(value = "category/list")
     @ResponseBody
 	public Object categoryList(String cateFid, int type, int start, int count){
+		logger.info("receive request categoryList");
 		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
 		
 		List<Map<String, Object>> productList = Lists.newArrayList();
@@ -263,6 +268,7 @@ public class MockController {
 	@RequestMapping(value = "product/specList")
     @ResponseBody
 	public Object specList(){
+		logger.info("receive request specList");
 		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
 		
 		List<Map<String, Object>> specList = Lists.newArrayList();
@@ -295,6 +301,7 @@ public class MockController {
 	@RequestMapping(value = "product/detail")
     @ResponseBody
 	public Object productDetail(String productFid){
+		logger.info("receive request productFid");
 		Map<String, Object> product = Maps.newHashMap();
 		product.put("title", "美素金装1段标题");
 		

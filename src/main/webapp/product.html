@@ -342,14 +342,13 @@
                       $.getJSON( "api/product/detail.do", function( data ) {
                                 $.each( data.rotatePicList, function( rotateNum, rotate ) {
                                        
-                                       $("#rotatePic"+rotateNum).attr("src",product.url);
+                                       $("#rotatePic"+rotateNum).attr("src",rotate.url);
                                        });
                                 $.each( data.tags, function( tagNum, tag ) {
                                         var tagObjId = "prdTags"+tagNum;
                                        
-                                       $("#"+tagObjId+"Name").html(product.name);
-                                       $("#"+tagObjId+"Detail").html(product.detail);
-                                
+                                       $("#"+tagObjId+"Name").html(tag.name);
+                                       $("#"+tagObjId+"Detail").html(tag.detail);
                                        
                                        $("#"+tagObjId).show();
                                        });
