@@ -57,7 +57,7 @@ public class MockController {
 	
 	@RequestMapping(value = "category/list")
     @ResponseBody
-	public Object categoryList(String cateFid, int type, int start, int count){
+	public Object categoryList(String cateFid, Integer type, Integer start, Integer count){
 		logger.info("receive request categoryList");
 		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
 		
