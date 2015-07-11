@@ -17,6 +17,206 @@ import com.google.common.collect.Maps;
 public class MockController {
 
 	private static Logger logger = LoggerFactory.getLogger(MockController.class);
+	
+	@RequestMapping(value = "main/list")
+    @ResponseBody
+	public Object mainList(){
+		logger.info("receive request mainList");
+
+		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
+		List<Map<String, Object>> categoryList = Lists.newArrayList();
+		
+		Map<String, Object> category = Maps.newHashMap();
+		category.put("name", "分类名");
+		category.put("moreUrl", "更多url");
+		
+		List<Map<String, Object>> productList = Lists.newArrayList();
+		Map<String, Object> product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "./resources/pics/Friso2main.jpg");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		List<Map<String, String>> tags = Lists.newArrayList();
+		Map<String, String>tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		category.put("productList", productList);
+		categoryList.add(category);
+		
+		category = Maps.newHashMap();
+		category.put("name", "分类名");
+		category.put("moreUrl", "更多url");
+		
+		productList = Lists.newArrayList();
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		category.put("productList", productList);
+		
+		categoryList.add(category);
+		
+		category = Maps.newHashMap();
+		category.put("name", "分类名");
+		category.put("moreUrl", "更多url");
+		
+		productList = Lists.newArrayList();
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		product = Maps.newHashMap();
+		product.put("pic", "商品图片");
+		product.put("url", "url");
+		product.put("title", "美素金装1段标题");
+		product.put("lowPrice", "200");
+		tags = Lists.newArrayList();
+		tag = Maps.newHashMap();
+		tag.put("name", "原装进口");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "产地最优");
+		tags.add(tag);
+		tag = Maps.newHashMap();
+		tag.put("name", "不上火");
+		tags.add(tag);
+		product.put("tags", tags);
+		productList.add(product);
+		
+		category.put("productList", productList);
+		categoryList.add(category);
+		
+		result.put("categoryList", categoryList);
+		return result;
+	}
+	
 	@RequestMapping(value = "category/type")
     @ResponseBody
 	public Object categoryType(){
