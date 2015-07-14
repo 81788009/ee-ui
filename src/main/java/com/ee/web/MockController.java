@@ -223,6 +223,11 @@ public class MockController {
 		logger.info("receive request categoryType");
 		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
 		
+		List<Map<String, Object>> subCateList = Lists.newArrayList();
+		
+		Map<String, Object> subCate = Maps.newHashMap();
+		subCate.put("name", "段位");
+		
 		List<Map<String, Object>> typeList = Lists.newArrayList();
 		Map<String, Object> type = Maps.newHashMap();
 		type.put("name", "1段");
@@ -250,7 +255,10 @@ public class MockController {
 		type.put("url", "url");
 		typeList.add(type);
 		
-		result.put("typeList", typeList);
+		subCate.put("typeList", typeList);
+		
+		subCateList.add(subCate);
+		result.put("subCateList", subCateList);
 		
 		return result;
 	}
@@ -472,27 +480,35 @@ public class MockController {
 		Map<String, List<Map<String,Object>>> result = Maps.newHashMap();
 		
 		List<Map<String, Object>> specList = Lists.newArrayList();
+
+		Map<String, Object> spec = Maps.newHashMap();
+		
+		spec.put("name", "容量");
+		
+		List<Map<String, Object>> typeList = Lists.newArrayList();
+		spec.put("typeList", typeList);
 		Map<String, Object> type = Maps.newHashMap();
 		type.put("name", "400g盒装");
 		type.put("url", "url");
 		type.put("selected", true);
-		specList.add(type);
+		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "1200g盒装");
 		type.put("url", "url");
-		specList.add(type);
+		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "400g罐装");
 		type.put("url", "url");
-		specList.add(type);
+		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "900g罐装");
 		type.put("url", "url");
-		specList.add(type);
+		typeList.add(type);
 		
+		specList.add(spec);
 		result.put("specList", specList);
 		
 		return result;
