@@ -39,13 +39,23 @@
         </nav>
         
         <div class="container">
-            <ul class="nav nav-pills pull-center" id="specList" style="display:none;">
-                <li><a href="#" id="specList0" style="display:none;"></a></li>
-                <li><a href="#" id="specList1" style="display:none;">400g罐装</a></li>
-                <li><a href="#" id="specList2" style="display:none;">900g罐装</a></li>
-                <li><a href="#" id="specList3" style="display:none;">400g盒装</a></li>
-                <li><a href="#" id="specList4" style="display:none;">1200g盒装</a></li>
-                <li><a href="#" id="specList5" style="display:none;"></a></li>
+            <ul class="nav nav-pills pull-center" id="specList0" style="display:none;">
+                <li><a href="#" id="specList0Name">容量</a></li>
+                <li><a href="#" id="specList0TypeList0" style="display:none;">1200g盒装</a></li>
+                <li><a href="#" id="specList0TypeList1" style="display:none;">400g罐装</a></li>
+                <li><a href="#" id="specList0TypeList2" style="display:none;">900g罐装</a></li>
+                <li><a href="#" id="specList0TypeList3" style="display:none;">400g盒装</a></li>
+                <li><a href="#" id="specList0TypeList4" style="display:none;"></a></li>
+                <li><a href="#" id="specList0TypeList5" style="display:none;"></a></li>
+            </ul>
+            <ul class="nav nav-pills pull-center" id="specList1" style="display:none;">
+                <li><a href="#" id="specList1Name"></a></li>
+                <li><a href="#" id="specList1TypeList0" style="display:none;">1200g盒装</a></li>
+                <li><a href="#" id="specList1TypeList1" style="display:none;">400g罐装</a></li>
+                <li><a href="#" id="specList1TypeList2" style="display:none;">900g罐装</a></li>
+                <li><a href="#" id="specList1TypeList3" style="display:none;">400g盒装</a></li>
+                <li><a href="#" id="specList1TypeList4" style="display:none;"></a></li>
+                <li><a href="#" id="specList1TypeList5" style="display:none;"></a></li>
             </ul>
         </div>
         
@@ -386,19 +396,23 @@
                       $.getJSON( "api/product/specList.do", function( data ) {
                                 var list = data.specList || [];
                                 if(list.length > 0){
-                                $.each( list, function( typeNum, type ) {
-                                       var specListId = "specList" + typeNum;
+                                $.each( list, function( specTypeNum, specType ) {
+                                       var specListId = "specList" + specTypeNum;
+                                       $("#"+specListId + "Name").html(specType.name);
                                        
-                                       $("#"+specListId).html(type.name);
-                                       $("#"+specListId).attr("href", type.url);
-                                       
-                                       if(type.selected == true){
-                                       $("#"+specListId).parent().addClass("active");
-                                       }
+                                	   $.each( specType.typeList, function( typeNum, type ) {
+                                	   	   var typeListId = specListId + "TypeList" + typeNum;
+	                                       $("#"+typeListId).html(type.name);
+	                                       $("#"+typeListId).attr("href", type.url);
+	                                       
+	                                       if(type.selected == true){
+	                                       $("#"+typeListId).parent().addClass("active");
+	                                       }
+	                                       $("#"+typeListId).show();
+                                       	   });
                                        
                                        $("#"+specListId).show();
                                        });
-                                $("#specList").show();
                                 }
                                 });
                       $.getJSON( "api/product/detail.do", function( data ) {
@@ -419,8 +433,6 @@
                                        var num = srcNum % 3;
                                        
                                        var srcObjId = "sl"+row+"Src"+num;
-                                       
-                                       console.log(srcObjId);
                                        
                                        $("#"+srcObjId+"Logo").attr("src",source.pic);
                                        $("#"+srcObjId+"BuyButton").attr("href",source.url);
