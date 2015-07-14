@@ -40,21 +40,40 @@
         
         <!-- Main jumbotron for a primary marketing message or call to action -->
         
-        <div class="container" id="typeList" style="display:none;">
+        <div class="container" id="subCateList0" style="display:none;">
             <div>
                 <ul class="nav nav-pills pull-center">
-                    <li role="presentation"><a href="#" id="typeList0" style="display:none;">全部</a></li>
-                    <li role="presentation"><a href="#" id="typeList1" style="display:none;">1段</a></li>
-                    <li role="presentation"><a href="#" id="typeList2" style="display:none;">2段</a></li>
-                    <li role="presentation"><a href="#" id="typeList3" style="display:none;">3段</a></li>
-                    <li role="presentation"><a href="#" id="typeList4" style="display:none;">4段</a></li>
-                    <li role="presentation"><a href="#" id="typeList5" style="display:none;">5段</a></li>
-                    <li role="presentation"><a href="#" id="typeList6" style="display:none;"></a></li>
-                    <li role="presentation"><a href="#" id="typeList7" style="display:none;"></a></li>
-                    <li role="presentation"><a href="#" id="typeList8" style="display:none;"></a></li>
+                    <li role="presentation"><a href="#"id="subCateList0Name"></a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList0" style="display:none;">全部</a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList1" style="display:none;">1段</a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList2" style="display:none;">2段</a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList3" style="display:none;">3段</a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList4" style="display:none;">4段</a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList5" style="display:none;">5段</a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList6" style="display:none;"></a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList7" style="display:none;"></a></li>
+                    <li role="presentation"><a href="#" id="subCate0typeList8" style="display:none;"></a></li>
                 </ul>
             </div>
         </div>
+        
+        <div class="container" id="subCateList1" style="display:none;">
+            <div>
+                <ul class="nav nav-pills pull-center">
+                    <li role="presentation"><a href="#"id="subCateList1Name"></a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList0" style="display:none;">全部</a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList1" style="display:none;">1段</a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList2" style="display:none;">2段</a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList3" style="display:none;">3段</a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList4" style="display:none;">4段</a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList5" style="display:none;">5段</a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList6" style="display:none;"></a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList7" style="display:none;"></a></li>
+                    <li role="presentation"><a href="#" id="subCate1typeList8" style="display:none;"></a></li>
+                </ul>
+            </div>
+        </div>
+        
         <div class="container" style="margin-top:10px;padding-buttom:30px;">
             <div class="jumbotron" style="margin-bottom:10px;padding-bottom:20px;">
             	<div class="row" id="prdRow0" style="display:none;">
@@ -352,21 +371,27 @@
                   var start = getUrlParam("start") || 0;
                   var count = getUrlParam("count") || 18;
                   $.getJSON( "api/category/type.do", function( data ) {
-                            var list = data.typeList || [];
+                            var list = data.subCateList || [];
                             if(list.length > 0){
-                                $.each( list, function( typeNum, type ) {
-                                       var typeListId = "typeList" + typeNum;
+                                $.each( list, function( subTypeNum, subType ) {
+                                	   var subCateListId = "subCateList" + subTypeNum;
+                                	   $("#"+subCateListId+"Name").html(subType.name);
+                                	   
+                                	   $.each( subType.typeList, function( typeNum, type ) {
+	                                       var typeListId = "subCate" + subTypeNum + "typeList" + typeNum;
+	                                       
+	                                       $("#"+typeListId).html(type.name);
+	                                       $("#"+typeListId).attr("href", type.url);
+	                                       
+	                                       if(type.selected == true){
+	                                       $("#"+typeListId).parent().addClass("active");
+	                                       }
+	                                       
+	                                       $("#"+typeListId).show();
+                                       	   });
                                        
-                                       $("#"+typeListId).html(type.name);
-                                       $("#"+typeListId).attr("href", type.url);
-                                       
-                                       if(type.selected == true){
-                                       $("#"+typeListId).parent().addClass("active");
-                                       }
-                                       
-                                       $("#"+typeListId).show();
+                                       $("#"+subCateListId).show();
                                        });
-                                $("#typeList").show();
                             }
                             });
                   $.getJSON( "api/category/list.do", {"cateFid":categoryId,"type":type,"start":start,"count":count}
