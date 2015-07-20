@@ -226,37 +226,68 @@ public class MockController {
 		List<Map<String, Object>> subCateList = Lists.newArrayList();
 		
 		Map<String, Object> subCate = Maps.newHashMap();
-		subCate.put("name", "段位");
+		subCate.put("name", "品牌");
 		
 		List<Map<String, Object>> typeList = Lists.newArrayList();
 		Map<String, Object> type = Maps.newHashMap();
+		type.put("name", "美素佳儿");
+		type.put("type", "010101");
+		type.put("selected", true);
+		typeList.add(type);
+		
+		type = Maps.newHashMap();
+		type.put("name", "惠氏");
+		type.put("type", "010102");
+		typeList.add(type);
+		
+		type = Maps.newHashMap();
+		type.put("name", "雀巢");
+		type.put("type", "010103");
+		typeList.add(type);
+		
+		type = Maps.newHashMap();
+		type.put("name", "诺优能");
+		type.put("type", "010104");
+		typeList.add(type);
+		
+		type = Maps.newHashMap();
+		type.put("name", "爱他美");
+		type.put("type", "010105");
+		typeList.add(type);
+		
+		subCate.put("typeList", typeList);
+		subCateList.add(subCate);
+		
+		subCate = Maps.newHashMap();
+		subCate.put("name", "段位");
+		typeList = Lists.newArrayList();
+		type = Maps.newHashMap();
 		type.put("name", "1段");
-		type.put("url", "url");
+		type.put("type", "010201");
 		type.put("selected", true);
 		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "2段");
-		type.put("url", "url");
+		type.put("type", "010202");
 		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "3段");
-		type.put("url", "url");
+		type.put("type", "010203");
 		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "4段");
-		type.put("url", "url");
+		type.put("type", "010204");
 		typeList.add(type);
 		
 		type = Maps.newHashMap();
 		type.put("name", "5段");
-		type.put("url", "url");
+		type.put("type", "010205");
 		typeList.add(type);
 		
 		subCate.put("typeList", typeList);
-		
 		subCateList.add(subCate);
 		result.put("subCateList", subCateList);
 		
